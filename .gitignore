@@ -1,0 +1,32 @@
+*.iml
+.gradle
+/local.properties
+/.idea/caches
+/.idea/libraries
+/.idea/modules.xml
+/.idea/workspace.xml
+/.idea/navEditor.xml
+/.idea/assetWizardSettings.xml
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+# Java
+*.class
+*.jar
+
+# Android / Gradle
+.gradle/
+build/
+*.apk
+*.iml
+local.properties
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material You Dynamic Colors - All colors are now provided by Material 3 theme -->
+    <!-- Only keeping error color as it's a semantic color that Material may not provide -->
+    <color name="error">#FF0000</color>
+</resources>

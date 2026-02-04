@@ -1,0 +1,27 @@
+<resources>
+    <string name="app_name">EventFinderJava</string>
+
+    <!-- Home -->
+    <string name="home_favorites_label">Favorites</string>
+    <string name="home_no_favorites">No favorites</string>
+    <string name="home_powered_by">Powered by Ticketmaster</string>
+    <string name="home_ticketmaster_url">https://www.ticketmaster.com/</string>
+    <string name="home_star_icon_cd">Read-only favorite icon</string>
+    <string name="home_ticketmaster_error">Unable to open Ticketmaster right now</string>
+
+    <!-- Search -->
+    <string name="search_events_placeholder">Search events…</string>
+    <string name="search_keyword_required">Keyword is required</string>
+    <string name="search_distance_invalid">Distance must be greater than 0</string>
+    <string name="search_distance_max">Distance cannot exceed 100</string>
+    <string name="search_current_location">Current Location</string>
+    <string name="search_enter_location">Enter location</string>
+    <string name="search_distance_unit">mi</string>
+    <string name="search_no_events">No events found</string>
+    <string name="search_category_all">All</string>
+    <string name="search_category_music">Music</string>
+    <string name="search_category_sports">Sports</string>
+    <string name="search_category_arts">Arts &amp; Theatre</string>
+    <string name="search_category_film">Film</string>
+    <string name="search_category_misc">Miscellaneous</string>
+</resources>

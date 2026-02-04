@@ -1,0 +1,314 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Search Header with Back Button -->
+        <LinearLayout
+            android:id="@+id/layoutSearchHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondaryContainer"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp">
+
+            <ImageButton
+                android:id="@+id/buttonBack"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Back"
+                android:src="@drawable/ic_arrow_back"
+                android:tint="?attr/colorOnSurface" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_weight="1"
+                    app:boxBackgroundMode="none"
+                    app:hintEnabled="false">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/editKeyword"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/search_events_placeholder"
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:maxLines="1"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textColorHint="?attr/colorOnSurfaceVariant"
+                        android:background="@android:color/transparent"
+                        android:completionThreshold="1"
+                        android:dropDownHeight="wrap_content"
+                        android:dropDownWidth="match_parent"
+                        android:popupBackground="?attr/colorSecondaryContainer"
+                        android:dropDownVerticalOffset="4dp"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            <ImageView
+                android:id="@+id/imageSearchIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:contentDescription="Search"
+                android:src="@android:drawable/ic_menu_search"
+                android:tint="?attr/colorOnSurface" />
+
+        </LinearLayout>
+
+        <!-- Keyword Error Message -->
+        <TextView
+            android:id="@+id/textKeywordError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondaryContainer"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="@string/search_keyword_required"
+            android:textColor="?attr/colorError"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <!-- Location and Distance Row -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondaryContainer"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="12dp">
+
+            <!-- Location Selector -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@android:drawable/ic_menu_mylocation"
+                    app:tint="?attr/colorOnSurface" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:background="?attr/selectableItemBackground">
+
+                    <AutoCompleteTextView
+                        android:id="@+id/autoCompleteLocation"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="text"
+                        android:focusable="true"
+                        android:focusableInTouchMode="true"
+                        android:clickable="true"
+                        android:text="@string/search_current_location"
+                        android:hint="@string/search_enter_location"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textColorHint="?attr/colorOnSurfaceVariant"
+                        android:background="@android:color/transparent"
+                        android:paddingVertical="8dp"
+                        android:dropDownHeight="wrap_content"
+                        android:dropDownWidth="wrap_content"
+                        android:dropDownVerticalOffset="0dp" />
+
+                    <ImageView
+                        android:id="@+id/imageLocationDropdown"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_marginStart="4dp"
+                        android:src="@android:drawable/arrow_down_float"
+                        android:tint="?attr/colorOnSurface"
+                        android:contentDescription="Location dropdown" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Distance Selector -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <!-- Decrease Button -->
+                <ImageButton
+                    android:id="@+id/buttonDecrease"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Decrease distance"
+                    android:src="@drawable/ic_arrow_down"
+                    android:tint="?attr/colorOnSurface" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:layout_marginEnd="4dp"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/editDistance"
+                        android:layout_width="40dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="numberSigned|number"
+                        android:text="10"
+                        android:textAlignment="center"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="14sp"
+                        android:minHeight="32dp"
+                        android:paddingVertical="8dp"
+                        android:background="@android:color/transparent"
+                        android:paddingHorizontal="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/search_distance_unit"
+                        android:textColor="?attr/colorOnSurface"
+                        android:textSize="14sp"
+                        android:layout_marginStart="2dp" />
+
+                </LinearLayout>
+
+                <!-- Increase Button -->
+                <ImageButton
+                    android:id="@+id/buttonIncrease"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:contentDescription="Increase distance"
+                    android:src="@drawable/ic_arrow_up"
+                    android:tint="?attr/colorOnSurface" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Distance Error Message -->
+        <TextView
+            android:id="@+id/textDistanceError"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondaryContainer"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="8dp"
+            android:text="@string/search_distance_invalid"
+            android:textColor="?attr/colorError"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <!-- Category Tabs -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/colorSecondaryContainer"
+            android:scrollbars="none">
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/tabCategories"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="8dp"
+                android:background="?attr/colorSecondaryContainer"
+                app:tabMode="scrollable"
+                app:tabSelectedTextColor="?attr/colorOnSurface"
+                app:tabTextColor="?attr/colorOnSurface"
+                app:tabIndicatorColor="?attr/colorPrimary"
+                app:tabRippleColor="@android:color/transparent"
+                app:tabBackground="@android:color/transparent" />
+
+        </HorizontalScrollView>
+
+        <!-- Results Area -->
+        <FrameLayout
+            android:id="@+id/containerResults"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="200dp"
+            android:padding="16dp">
+
+            <!-- Loading Indicator -->
+            <ProgressBar
+                android:id="@+id/progressLoading"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <!-- No Events Found -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardNoEvents"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                app:cardBackgroundColor="?attr/colorSecondaryContainer"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="0dp"
+                app:strokeWidth="0dp"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/textNoEvents"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingHorizontal="32dp"
+                    android:paddingVertical="24dp"
+                    android:text="@string/search_no_events"
+                    android:textColor="?attr/colorOnSecondaryContainer"
+                    android:textSize="16sp"
+                    android:visibility="visible" />
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Results RecyclerView -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerResults"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false"
+                android:visibility="gone"
+                tools:itemCount="0" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+

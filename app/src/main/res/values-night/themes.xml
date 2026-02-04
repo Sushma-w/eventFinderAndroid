@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme with Material You dynamic colors -->
+    <style name="Base.Theme.EventFinderJava" parent="Theme.Material3.DynamicColors.DayNight.NoActionBar">
+        <!-- Material You dynamic colors will automatically adapt to system dark theme -->
+        <!-- All colors will be derived from the system's dynamic color palette -->
+    </style>
+
+    <!-- Main application theme -->
+    <style name="Theme.EventFinderJava" parent="Base.Theme.EventFinderJava" />
+
+    <!-- Launcher/Splash theme -->
+    <style name="Theme.EventFinderJava.Launcher" parent="Base.Theme.EventFinderJava">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+</resources>
